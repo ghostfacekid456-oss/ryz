@@ -4,387 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tele X Graphics | James Ruzige</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- 
+      1. THE FAVICON CODE 
+      Make sure the 'href' matches the exact name of your image file.
+      If you renamed the star image to 'favicon.jpg', change the href below.
+    -->
+    <link rel="icon" type="image/jpeg" href="image_38c761.jpg">
+    
+    <!-- For Apple devices (Home screen icon) -->
+    <link rel="apple-touch-icon" href="image_38c761.jpg">
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .product-card:hover .product-img { transform: scale(1.05); }
-        .cart-drawer { transition: transform 0.3s ease-in-out; }
-        .cart-drawer.closed { transform: translateX(100%); }
-        .fade-in { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Basic styles to match your screenshot's look */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px 5%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #003366;
+            margin-right: 20px;
+        }
+        .logo span {
+            color: #0066cc;
+        }
+        .search-bar {
+            flex-grow: 1;
+            max-width: 400px;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f1f3f4;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-    <!-- Top Branding Bar -->
-    <div class="bg-slate-950 text-white py-2.5 px-6 overflow-hidden border-b border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-[10px] font-black tracking-[0.3em] uppercase opacity-90">
-            <span class="flex items-center gap-2">
-                <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                TELE X GRAPHICS
-            </span>
-            <span class="mt-1 sm:mt-0 text-blue-400">THIS PRODUCT IS FOR JAMES RUZIGE</span>
-            <div class="hidden sm:flex gap-6">
-                <span>V.2026.04</span>
-                <span>SECURE NODE</span>
-            </div>
-        </div>
+    <header class="header">
+        <div class="logo">TELE<span>X</span></div>
+        <input type="text" class="search-bar" placeholder="Search hardware...">
+    </header>
+
+    <div style="padding: 50px; text-align: center;">
+        <h1>Favicon is now active!</h1>
+        <p>Look at the browser tab at the top of the window to see your star icon.</p>
     </div>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-2xl border-b border-slate-100 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-12">
-                <h1 onclick="showView('home')" class="text-2xl font-black tracking-tighter text-blue-600 cursor-pointer flex items-center">
-                    TELE <span class="text-slate-900 ml-1">X</span>
-                </h1>
-                <div class="hidden lg:flex relative w-80 group">
-                    <input type="text" oninput="handleSearch(this.value)" placeholder="Search hardware..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm outline-none font-bold">
-                    <svg class="absolute left-3.5 top-3 w-4 h-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <button onclick="toggleCart(true)" class="relative p-3 bg-slate-50 hover:bg-blue-50 rounded-xl transition-all group">
-                    <svg class="w-6 h-6 group-hover:text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-                    <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-lg ring-4 ring-white shadow-lg">0</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-8" id="main-content">
-        <!-- Views will be injected here -->
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 mt-20 py-16 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-1">
-                <h4 class="font-black text-2xl mb-6">TELE X</h4>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">High-performance digital lifestyle curated specifically for James Ruzige. Precision engineered hardware.</p>
-                <div class="flex gap-3">
-                    <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-xl">🔌</div>
-                    <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-xl">⚡</div>
-                    <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-xl">💎</div>
-                </div>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 uppercase text-[10px] tracking-widest">Inventory</h5>
-                <ul class="space-y-4 text-sm font-semibold text-slate-500">
-                    <li><a href="#" class="hover:text-blue-600">Graphics Units</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Mobile Nodes</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Audio Matrix</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 uppercase text-[10px] tracking-widest">Support</h5>
-                <ul class="space-y-4 text-sm font-semibold text-slate-500">
-                    <li><a href="#" class="hover:text-blue-600">Order Protocol</a></li>
-                    <li><a href="#" class="hover:text-blue-600">X-Logistics</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Warranty V2</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold text-slate-900 mb-6 uppercase text-[10px] tracking-widest">Global Protocol</h5>
-                <p class="text-[10px] text-slate-400 mb-4 uppercase font-black">Authorized Personnel Only</p>
-                <div class="flex gap-2">
-                    <input type="email" placeholder="James@ruzige.com" class="bg-slate-50 border-none rounded-xl px-4 py-3 w-full text-xs font-bold outline-none ring-1 ring-slate-100 focus:ring-2 focus:ring-blue-500">
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 gap-4">
-            <p>@2026 tele x worldlide corp</p>
-            <div class="flex gap-8">
-                <a href="#" class="hover:text-slate-900">Privacy</a>
-                <a href="#" class="hover:text-slate-900">Terms</a>
-                <a href="#" class="hover:text-slate-900">Security</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cart Sidebar -->
-    <div id="cart-overlay" onclick="toggleCart(false)" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md"></div>
-    <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[60] shadow-2xl cart-drawer closed flex flex-col">
-        <div class="p-6 border-b flex justify-between items-center">
-            <h2 class="text-xl font-black uppercase tracking-tight">Your Hardware Bag</h2>
-            <button onclick="toggleCart(false)" class="p-2 hover:bg-slate-100 rounded-full">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-        </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
-            <!-- Items injected here -->
-        </div>
-        <div id="cart-footer" class="p-8 border-t bg-slate-50">
-            <!-- Footer injected here -->
-        </div>
-    </div>
-
-    <script>
-        const generateLaptops = () => {
-            const laptops = [];
-            const laptopImages = [
-                "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
-                "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
-                "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
-                "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
-                "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
-                "https://images.unsplash.com/photo-1593642632823-8f785bf67e45",
-                "https://images.unsplash.com/photo-1603302576837-37561b2e2302"
-            ];
-            const brands = ["Aero", "Zen", "Titan", "Spectre", "Nova", "Blade", "Vanguard", "Elite"];
-            
-            for (let i = 1; i <= 50; i++) {
-                laptops.push({
-                    id: 100 + i,
-                    name: `${brands[i % brands.length]} Book Pro ${13 + (i % 4)}" X${i}`,
-                    price: 899 + (i * 20),
-                    category: "Laptops",
-                    rating: (4.5 + (Math.random() * 0.5)).toFixed(1),
-                    image: `${laptopImages[i % laptopImages.length]}?auto=format&fit=crop&q=80&w=400`,
-                    desc: `High-performance computing node version ${i}.0. Optimized for professional workflows.`
-                });
-            }
-            return laptops;
-        };
-
-        const generateMobiles = () => {
-            const mobiles = [];
-            const mobileImages = [
-                "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-                "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
-                "https://images.unsplash.com/photo-1567581935884-3349723552ca",
-                "https://images.unsplash.com/photo-1523206489230-c012c64b2b48",
-                "https://images.unsplash.com/photo-1573148195900-7845dcb9b127",
-                "https://images.unsplash.com/photo-1533228891704-60327b2adaba",
-                "https://images.unsplash.com/photo-1550029330-8dbccaade873"
-            ];
-            const brands = ["Nexus", "Galaxy", "Prime", "Lumina", "Vertex", "Edge", "Photon", "Core"];
-            
-            for (let i = 1; i <= 50; i++) {
-                mobiles.push({
-                    id: 200 + i,
-                    name: `${brands[i % brands.length]} Phone Gen-${i}`,
-                    price: 499 + (i * 15),
-                    category: "Mobiles",
-                    rating: (4.4 + (Math.random() * 0.6)).toFixed(1),
-                    image: `${mobileImages[i % mobileImages.length]}?auto=format&fit=crop&q=80&w=400`,
-                    desc: `Next-generation mobile communication node. Featuring Ultra-X signal processing.`
-                });
-            }
-            return mobiles;
-        };
-
-        const PRODUCTS = [
-            ...generateLaptops(),
-            ...generateMobiles(),
-            { id: 3, name: "4K OLED Smart TV 55\"", price: 799, category: "TV & Home", rating: 4.7, image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=400", desc: "Visual immersion with perfect black levels." },
-            { id: 4, name: "Wireless Headphones XL", price: 299, category: "Audio", rating: 4.6, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400", desc: "Pure acoustic reproduction." },
-            { id: 6, name: "Smart Home Security Drone", price: 899, category: "Smart Home", rating: 4.5, image: "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&fit=crop&q=80&w=400", desc: "AI-driven aerial monitoring system." },
-            { id: 7, name: "Studio Speaker Set", price: 199, category: "Audio", rating: 4.6, image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&q=80&w=400", desc: "Reference grade audio for James' studio." },
-            { id: 8, name: "Professional DSLR Rig", price: 1599, category: "Cameras", rating: 4.9, image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=400", desc: "Capture precision optics and depth." },
-            { id: 9, name: "Next-Gen Gaming Console", price: 499, category: "Gaming", rating: 4.9, image: "https://images.unsplash.com/photo-1605898962319-19451d7f8798?auto=format&fit=crop&q=80&w=400", desc: "Extreme performance gaming unit." },
-            { id: 10, name: "Smart Hub Controller", price: 129, category: "Smart Home", rating: 4.4, image: "https://images.unsplash.com/photo-1558002038-103792e07924?auto=format&fit=crop&q=80&w=400", desc: "Central node for automated environments." },
-            { id: 12, name: "Noise-Cancelling Earbuds", price: 179, category: "Audio", rating: 4.5, image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=400", desc: "Compact audio node with active isolation." }
-        ];
-
-        let cart = [];
-        let searchQuery = "";
-        let currentCategory = "All";
-
-        function showView(view) {
-            const container = document.getElementById('main-content');
-            container.innerHTML = '';
-            
-            if (view === 'home') {
-                container.innerHTML = `
-                    <section class="fade-in relative bg-slate-900 text-white p-12 rounded-3xl mb-12 overflow-hidden border border-slate-800">
-                        <div class="relative z-10 max-w-xl">
-                            <h2 class="text-5xl font-black mb-6 leading-tight tracking-tight">James Ruzige's <span class="text-blue-500 italic underline decoration-blue-500/30">Expanded Hub.</span></h2>
-                            <p class="text-slate-400 text-lg mb-8">Now featuring 100+ new high-performance laptops and mobiles. Pure digital power, curated for excellence.</p>
-                            <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl transition-all active:scale-95">View New Arrivals</button>
-                        </div>
-                        <div class="absolute -right-20 -bottom-20 w-1/2 h-full opacity-20 hidden md:block rotate-12">
-                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover rounded-3xl">
-                        </div>
-                    </section>
-
-                    <div class="flex overflow-x-auto gap-4 mb-12 no-scrollbar">
-                        ${["All", "Mobiles", "Laptops", "TV & Home", "Audio", "Cameras", "Smart Home", "Gaming"].map(cat => `
-                            <button onclick="setCategory('${cat}')" class="px-6 py-2.5 rounded-xl border-2 transition-all font-bold text-sm whitespace-nowrap ${currentCategory === cat ? 'bg-blue-600 border-blue-600 text-white shadow-lg' : 'bg-white border-slate-100 text-slate-500 hover:border-blue-100'}">
-                                ${cat}
-                            </button>
-                        `).join('')}
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        ${renderProducts()}
-                    </div>
-                `;
-            } else if (view === 'success') {
-                container.innerHTML = `
-                    <div class="max-w-md mx-auto py-24 text-center fade-in">
-                        <div class="w-24 h-24 bg-green-50 text-green-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl rotate-6">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
-                        </div>
-                        <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tighter">Order Logged</h2>
-                        <p class="text-slate-500 mb-10 font-medium">James, your request has been received by the Tele X network. Processing hardware allocation now.</p>
-                        <button onclick="showView('home')" class="bg-slate-950 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-600 transition-all shadow-2xl">Return to Hub</button>
-                    </div>
-                `;
-            }
-        }
-
-        function renderProducts() {
-            const filtered = PRODUCTS.filter(p => {
-                const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-                const matchesCat = currentCategory === "All" || p.category === currentCategory;
-                return matchesSearch && matchesCat;
-            });
-
-            if (filtered.length === 0) return `<div class="col-span-full py-20 text-center text-slate-400 font-bold">No hardware found matching parameters.</div>`;
-
-            return filtered.map(p => `
-                <div class="product-card fade-in bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col group">
-                    <div class="h-60 overflow-hidden relative">
-                        <img src="${p.image}" class="product-img w-full h-full object-cover transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-slate-950/90 text-[9px] font-black text-white px-3 py-1.5 rounded-lg uppercase tracking-widest backdrop-blur-md">
-                            ${p.category}
-                        </div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <div class="flex items-center text-amber-500 text-xs font-black mb-3">
-                            <span>★ ${p.rating}</span>
-                        </div>
-                        <h3 class="font-black text-slate-900 text-lg mb-2 line-clamp-1">${p.name}</h3>
-                        <p class="text-slate-500 text-xs mb-6 line-clamp-2 leading-relaxed">${p.desc}</p>
-                        <div class="mt-auto flex items-center justify-between border-t border-slate-50 pt-5">
-                            <span class="text-2xl font-black text-slate-900 tracking-tight">$${p.price}</span>
-                            <button onclick="addToCart(${p.id})" class="bg-slate-900 text-white p-3 rounded-xl hover:bg-blue-600 transition-all active:scale-90 shadow-lg">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function handleSearch(val) {
-            searchQuery = val;
-            showView('home');
-        }
-
-        function setCategory(cat) {
-            currentCategory = cat;
-            showView('home');
-        }
-
-        function toggleCart(open) {
-            const drawer = document.getElementById('cart-drawer');
-            const overlay = document.getElementById('cart-overlay');
-            if (open) {
-                drawer.classList.remove('closed');
-                overlay.classList.remove('hidden');
-                updateCartUI();
-            } else {
-                drawer.classList.add('closed');
-                overlay.classList.add('hidden');
-            }
-        }
-
-        function addToCart(id) {
-            const product = PRODUCTS.find(p => p.id === id);
-            const existing = cart.find(item => item.id === id);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push({ ...product, qty: 1 });
-            }
-            updateCartCount();
-            toggleCart(true);
-        }
-
-        function updateQty(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
-                updateCartCount();
-                updateCartUI();
-            }
-        }
-
-        function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.qty, 0);
-            const el = document.getElementById('cart-count');
-            el.innerText = count;
-            el.classList.toggle('hidden', count === 0);
-        }
-
-        function updateCartUI() {
-            const itemsContainer = document.getElementById('cart-items');
-            const footerContainer = document.getElementById('cart-footer');
-            
-            if (cart.length === 0) {
-                itemsContainer.innerHTML = `<div class="h-full flex flex-col items-center justify-center text-slate-300 font-bold">Bag is currently empty</div>`;
-                footerContainer.innerHTML = '';
-                return;
-            }
-
-            itemsContainer.innerHTML = cart.map(item => `
-                <div class="flex gap-4 group">
-                    <div class="w-20 h-20 bg-slate-100 rounded-xl overflow-hidden shrink-0">
-                        <img src="${item.image}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between font-black text-sm mb-1">
-                            <span>${item.name}</span>
-                            <span>$${item.price * item.qty}</span>
-                        </div>
-                        <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">${item.category}</p>
-                        <div class="flex items-center gap-3">
-                            <div class="flex items-center bg-white border rounded-lg overflow-hidden shadow-sm">
-                                <button onclick="updateQty(${item.id}, -1)" class="px-2 py-1 hover:bg-slate-50 text-xs font-bold">-</button>
-                                <span class="px-3 text-xs font-black">${item.qty}</span>
-                                <button onclick="updateQty(${item.id}, 1)" class="px-2 py-1 hover:bg-slate-50 text-xs font-bold">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            footerContainer.innerHTML = `
-                <div class="flex justify-between items-end mb-8">
-                    <div>
-                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">James' Total Allocation</p>
-                        <p class="text-4xl font-black text-slate-900 tracking-tighter">$${total}</p>
-                    </div>
-                </div>
-                <button onclick="checkout()" class="w-full bg-slate-950 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/10">
-                    Authenticate & Purchase
-                </button>
-            `;
-        }
-
-        function checkout() {
-            cart = [];
-            updateCartCount();
-            toggleCart(false);
-            showView('success');
-        }
-
-        // Initialize
-        window.onload = () => showView('home');
-    </script>
 </body>
 </html>
