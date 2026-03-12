@@ -5,59 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tele X Graphics | James Ruzige</title>
 
-    <!-- 
-      1. THE FAVICON CODE 
-      Make sure the 'href' matches the exact name of your image file.
-      If you renamed the star image to 'favicon.jpg', change the href below.
-    -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="image_38c761.jpg">
-    
-    <!-- For Apple devices (Home screen icon) -->
     <link rel="apple-touch-icon" href="image_38c761.jpg">
 
     <style>
-        /* Basic styles to match your screenshot's look */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             background-color: #f8f9fa;
+            color: #333;
         }
+
+        /* Navbar Styles */
         .header {
             display: flex;
             align-items: center;
-            padding: 15px 5%;
+            justify-content: space-between;
+            padding: 10px 5%;
             background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #eee;
         }
+
         .logo {
-            font-weight: bold;
-            font-size: 24px;
-            color: #003366;
-            margin-right: 20px;
+            font-weight: 800;
+            font-size: 22px;
+            color: #002d5b;
+            letter-spacing: -1px;
         }
+
         .logo span {
-            color: #0066cc;
+            color: #3b82f6;
         }
-        .search-bar {
+
+        .search-container {
             flex-grow: 1;
-            max-width: 400px;
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f1f3f4;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
         }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #f3f4f6;
+            font-size: 14px;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 20px 5%;
+            background: linear-gradient(to right, #0f172a, #1e293b);
+            border-radius: 16px;
+            padding: 60px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+
+        .hero p {
+            max-width: 500px;
+            font-size: 16px;
+            color: #cbd5e1;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .btn-arrivals {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            width: fit-content;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-arrivals:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 12px;
+            padding: 0 5%;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .category-pill {
+            padding: 8px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-pill.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .category-pill:hover:not(.active) {
+            background: #f1f5f9;
+        }
+
     </style>
 </head>
 <body>
 
     <header class="header">
         <div class="logo">TELE<span>X</span></div>
-        <input type="text" class="search-bar" placeholder="Search hardware...">
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search hardware...">
+        </div>
+        <div class="cart-icon">🛒</div>
     </header>
 
-    <div style="padding: 50px; text-align: center;">
-        <h1>Favicon is now active!</h1>
-        <p>Look at the browser tab at the top of the window to see your star icon.</p>
+    <section class="hero">
+        <h1>James Ruzige's <span>Expanded Hub.</span></h1>
+        <p>Now featuring 100+ new high-performance laptops and mobiles. Pure digital power, curated for excellence.</p>
+        <button class="btn-arrivals">VIEW NEW ARRIVALS</button>
+    </section>
+
+    <div class="categories">
+        <div class="category-pill active">All</div>
+        <div class="category-pill">Mobiles</div>
+        <div class="category-pill">Laptops</div>
+        <div class="category-pill">TV & Home</div>
+        <div class="category-pill">Audio</div>
+        <div class="category-pill">Cameras</div>
+        <div class="category-pill">Smart Home</div>
+        <div class="category-pill">Gaming</div>
     </div>
 
 </body>
